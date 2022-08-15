@@ -38,10 +38,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion.SSH" />
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\Ningjialei\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,6 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660557399304</updated>
       <workItem from="1660557404954" duration="81000" />
+      <workItem from="1660557502307" duration="1402000" />
     </task>
     <servers />
   </component>
@@ -58,9 +59,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="0" y="334" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1660558724070">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="0" y="334" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1660558724070" />
     <state x="659" y="321" key="FileChooserDialogImpl" timestamp="1660557484742">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="659" y="321" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1660557484742" />
+    <state x="334" y="125" key="SettingsEditor" timestamp="1660557947512">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="334" y="125" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1660557947512" />
+    <state x="262" y="175" key="new project wizard" timestamp="1660558703739">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="262" y="175" key="new project wizard/0.0.1536.834@0.0.1536.834" timestamp="1660558703739" />
   </component>
 </project>
