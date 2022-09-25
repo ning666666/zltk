@@ -1,0 +1,88 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: u-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#**代表从/(?<segment>.*),/$\{segment} 中过滤请求
+#该属性用于完成路径的重写和伪装，后面可以理解为正则，?<segment>.*代替上面的chann。。。/**，过滤没比必要的请求，/$\{segment}为第二种写法，一般只写一种
+    gateway:
+      routes:
+        - id: uchannel-route # 渠道微服务路由
+          uri: lb://u-channel
+          predicates:
+            - Path=/api/channel/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: cms-route # 内容微服务路由
+          uri: lb://u-context
+          predicates:
+            - Path=/api/context/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: qms-route # 题目微服务路由
+          uri: lb://u-question
+          predicates:
+            - Path=/api/question/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: ums-route # 用户微服务路由
+          uri: lb://u-member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: study-route # 学习微服务路由
+          uri: lb://u-study
+          predicates:
+            - Path=/api/study/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: oss-route # oss服务路由
+          uri: lb://u-oss
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: renrenfast-route # 人人后台服务路由
+          uri: lb://renren-fast #要做服务器集群，不能写死 ,lb负载均衡的规则，服务器集群名renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+        - id: weixin-login-ums-route # 提供微信客户端调用的，用户微服务路由
+          uri: lb://u-member
+          predicates:
+            - Path=/wx/member/member/login/**
+          filters:
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+        - id: weixin-register-ums-route # 提供微信客户端调用的，用户微服务路由
+          uri: lb://u-member
+          predicates:
+            - Path=/wx/member/member/save/**
+          filters:
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+        - id: weixin-test-ums-route # 提供微信客户端调用的，用户微服务路由
+          uri: lb://u-member
+          predicates:
+            - Path=/wx/member/member/refreshtoken/**
+          filters:
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+            - JwtCheck  #过滤器前缀，让过滤器生效，意思就是必须带着令牌校验通过了才能访问
+        - id: weixin-question-route # 提供微信客户端调用的，用户微服务路由
+          uri: lb://u-question
+          predicates:
+            - Path=/wx/question/**
+          filters:
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+            - JwtCheck
+        - id: weixin-context-route # 提供微信客户端调用的，用户微服务路由
+          uri: lb://u-context
+          predicates:
+            - Path=/wx/context/**
+          filters:
+            - RewritePath=/wx/(?<segment>.*),/$\{segment}
+            - JwtCheck

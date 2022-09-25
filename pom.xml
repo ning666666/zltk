@@ -9,5 +9,9 @@
     <version>1.0</version>
     <packaging>pom</packaging>
 
-
+    <modules>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>u-common</module>
+    </modules>
 </project>

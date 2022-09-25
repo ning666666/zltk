@@ -1,0 +1,19 @@
+server:
+  port: 14000
+spring:
+  application:
+    name: u-oss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    alicloud:
+      access-key: LTAI5tSN32EpTChbA1D8yfqh
+      secret-key: dUkUP0YjxW6r5Mj1nEejlCbUlcddDI
+      oss:
+        endpoint: oss-cn-guangzhou.aliyuncs.com
+        bucket: nichachaa
+
+logging:
+  level:
+    com.offcn.oss: debug
